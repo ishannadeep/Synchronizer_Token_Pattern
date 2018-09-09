@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <h1>Login Authentication</h1>
         <?php
-        if($_POST['userName']=="ishan123" && $_POST['password']=="ishan123")
+        if($_POST['userName']=="ishan" && $_POST['password']=="ishan123")
         {
             session_start();
             $sessionID= session_id();
