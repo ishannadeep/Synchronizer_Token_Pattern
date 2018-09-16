@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                loadDoc();
+            });
+            function loadDoc() {
+
+                $.ajax({
+                    url: 'server.php',
+                    dataType: 'text',
+                    type: 'post',
+                    contentType: 'application/x-www-form-urlencoded',
+
+                    success: function (data, textStatus, jQxhr) {
+                        $('#hid_token').val(JSON.parse(data));
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <div><form action="server2.php" method="POST">
+                <div><label>name</label><br><input type="text" name="name123"> </div>
+                <div><label>phone number</label><br><input type="text" name="phonenum"> </div>
+                <div><label>address</label><br><input type="text" name="address"> </div>
+                <div><br><input type="hidden"   name="token" id="hid_token"> </div>
+                <div><br><input type="submit" > </div>
+
+            </form>
+        </div>
+
+
+    </body>
+</html>
