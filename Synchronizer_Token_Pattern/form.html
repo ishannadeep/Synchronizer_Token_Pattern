@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,22 +11,18 @@
                 loadDoc();
             });
             function loadDoc() {
-
                 $.ajax({
                     url: 'server.php',
                     dataType: 'text',
                     type: 'post',
                     contentType: 'application/x-www-form-urlencoded',
-
                     success: function (data, textStatus, jQxhr) {
                         $('#hid_token').val(JSON.parse(data));
                     },
                     error: function (jqXhr, textStatus, errorThrown) {
-
                     }
                 });
             }
-
         </script>
     </head>
     <body>
