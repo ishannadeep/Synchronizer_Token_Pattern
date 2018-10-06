@@ -24,7 +24,7 @@ function onc() {
         $sessionID = session_id();
         $cookie_name = "user";
         $cookie_value = $Name;
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie($cookie_name, $sessionID,  "/"); 
 
         $Token = token($Name, $sessionID);
         $_SESSION["token"] = $Token;
@@ -39,8 +39,8 @@ if (isset($_COOKIE["user"])) {
     echo 'session start' + $_COOKIE["user"];
     session_start();
     $sessionID = session_id();
-    $Name = $_COOKIE["user"];
-    $Token = token($Name, $sessionID);
+    $value = $_COOKIE["user"];
+    $Token = token($value, $sessionID);
     $_SESSION["token"] = $Token;
     header("Location: form.html"); /* Redirect browser */
 } else {

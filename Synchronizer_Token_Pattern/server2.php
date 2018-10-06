@@ -1,18 +1,12 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function token($name, $sessionID) {
 
     return sha1($name . $sessionID);
 }
 
-function checktoken($token, $name, $sessionID) {
-    return $token === token($name, $sessionID);
+function checktoken($token, $value, $sessionID) {
+    return $token === token($value, $sessionID);
 }
 
 session_start();
